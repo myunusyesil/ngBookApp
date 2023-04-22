@@ -1,0 +1,36 @@
+<div class="books p-5">
+  <div class="card m-2 text-center bg-light bg-gradient" style="width: 18rem">
+    <img
+      [src]="singleBook.imgUrl"
+      class="card-img-top"
+      alt="{{ singleBook.name }}"
+      style="
+        height: auto;
+        background-size: contain;
+        background-repeat: no-repeat;
+      "
+    />
+    <div class="card-body">
+      <h5 class="card-title">
+        {{ singleBook.name }} -
+        {{ singleBook.price | currency }}
+      </h5>
+      <p class="fw-semibold fst-italic">{{ singleBook.author }}</p>
+      <p class="card-text">
+        {{ singleBook.desc | titlecase | textlimit }}
+      </p>
+      <a
+        *ngIf="!singleBook.inCard"
+        (click)="onAddCart($event)"
+        class="btn btn-primary"
+        >Sepete Ekle</a
+      >
+      <a
+        *ngIf="!!singleBook.inCard"
+        (click)="onRemoveCart($event)"
+        class="btn btn-danger"
+        >Sepetten Çıkart</a
+      >
+    </div>
+  </div>
+</div>

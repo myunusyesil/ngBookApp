@@ -1,0 +1,23 @@
+<div class="container col-md-8 my-4">
+  <h4>My Cart</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Author</th>
+        <th scope="col">Price</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of cart$ | async; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ book.name }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.price }}</td>
+        <td>{{ book.desc }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
