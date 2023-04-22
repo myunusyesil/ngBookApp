@@ -14,6 +14,7 @@ export class CartComponent implements OnInit {
   cart: Book[] = [];
   cart$: Observable<any> = of([]);
 
+  // Using async pipe for subscribe and unsubscribe
   ngOnInit(): void {
     debugger;
     this.cart$ = this.booksService.cartSub$.pipe(
@@ -27,9 +28,5 @@ export class CartComponent implements OnInit {
         return of([]);
       })
     );
-    // .subscribe(
-    //   (books: Book[]) => (this.cart = books)
-    // );
-    // this.cart = this.booksService.getCart();
   }
 }
