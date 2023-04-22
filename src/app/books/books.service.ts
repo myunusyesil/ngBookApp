@@ -77,7 +77,7 @@ export class BooksService {
   };
 
   books: Book[] = [this.book];
-  cart: Book[] = [this.book];
+  cart: Book[] = [];
 
   searchSubject = new Subject<string>();
 

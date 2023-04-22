@@ -16,7 +16,6 @@ export class CartComponent implements OnInit {
 
   // Using async pipe for subscribe and unsubscribe
   ngOnInit(): void {
-    debugger;
     this.cart$ = this.booksService.cartSub$.pipe(
       tap((data) => {
         console.log(data);
