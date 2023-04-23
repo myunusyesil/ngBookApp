@@ -17,7 +17,9 @@
         <td>{{ book.name }}</td>
         <td>{{ book.author }}</td>
         <td>{{ book.price }}</td>
-        <td>{{ book.desc.substring(0, 300) + "..." }}</td>
+        <td>
+          {{ book.desc ? book.desc.substring(0, 300) + "..." : "" }}
+        </td>
         <td>
           <button
             (click)="onClickDelete(book)"
