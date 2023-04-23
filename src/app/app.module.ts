@@ -5,8 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
-import { BooksModule } from './books/books.module';
-
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { CartComponent } from './cart/cart.component';
@@ -20,7 +18,6 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     HttpClientModule,
     CommonModule,
-    BooksModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
