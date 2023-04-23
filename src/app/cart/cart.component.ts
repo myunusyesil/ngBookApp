@@ -14,13 +14,15 @@ export class CartComponent implements OnInit {
   cart: Book[] = [];
   cart$: Observable<any> = of([]);
 
+  onClickDelete(book: Book) {
+    this.booksService.removeFromCart(book);
+  }
   // Using async pipe for subscribe and unsubscribe
   ngOnInit(): void {
     this.cart$ = this.booksService.cartSub$.pipe(
       tap((data) => {
-        console.log(data);
         this.cart = this.booksService.getCart();
-        console.log(this.cart);
+        console.log(data);
       }),
       catchError((error) => {
         console.log(error);

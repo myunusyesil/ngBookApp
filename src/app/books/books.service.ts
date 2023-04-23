@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Book } from './book.model';
 import { BehaviorSubject, Observable, Subject, map } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { environment as env } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -14,21 +15,16 @@ export class BooksService {
 
   // Configuring Google API query
 
-  googleApiUrl: string = `https://www.googleapis.com/books/v1/volumes`;
-  apiKey: string = `AIzaSyBEGkkKXEkZsWORJ77einlFDaIZ_2WpcDQ`;
-
-  // Configuring Google API query
-
   // Searching books
   searchBooks(queryParam: string): Observable<any> {
     let searchParams = new HttpParams();
-    searchParams = searchParams.append('key', this.apiKey);
+    searchParams = searchParams.append('key', env.API_KEY);
     searchParams = searchParams.append('maxResults', '18');
     // searchParams = searchParams.append('projection', 'lite');
     this.books = [];
 
     return this.http
-      .get<any>(this.googleApiUrl + `?q=${queryParam}`, {
+      .get<any>(env.G_API_URL + `?q=${queryParam}`, {
         params: searchParams,
       })
       .pipe(

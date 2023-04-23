@@ -1,22 +1,25 @@
-<div class="books p-5">
-  <div class="card m-2 text-center bg-light bg-gradient" style="width: 18rem">
-    <img
-      [src]="singleBook.imgUrl"
-      class="card-img-top"
-      alt="{{ singleBook.name }}"
-      style="
-        height: auto;
-        background-size: contain;
-        background-repeat: no-repeat;
-      "
-    />
-    <div class="card-body">
-      <h5 class="card-title">
+<div class="books p-3">
+  <div
+    class="card m-2 text-center bg-light bg-gradient"
+    style="width: 22rem; height: 42rem"
+  >
+    <div style="max-height: 24rem">
+      <img
+        [src]="singleBook.imgUrl"
+        class="card-img-top img-fluid"
+        alt="{{ singleBook.name }}"
+        style="height: auto; overflow: hidden"
+      />
+    </div>
+    <div
+      class="card-body bg-light p-4 d-flex flex-column justify-content-between"
+    >
+      <h5 class="card-title fs-6">
         {{ singleBook.name }} -
         {{ singleBook.price | currency }}
       </h5>
-      <p class="fw-semibold fst-italic">{{ singleBook.author }}</p>
-      <p class="card-text">
+      <p class="fw-semibold fst-italic mb-2">{{ singleBook.author }}</p>
+      <p class="card-text mb-2">
         {{ singleBook.desc | titlecase | textlimit }}
       </p>
       <a
