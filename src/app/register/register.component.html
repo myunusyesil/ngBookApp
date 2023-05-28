@@ -1,5 +1,9 @@
 <div class="container mt-5">
-  <form>
+  <form
+    #registerForm="ngForm"
+    (ngSubmit)="onSubmit(registerForm)"
+    *ngIf="!isLoading"
+  >
     <div class="col-md-8 offset-md-2">
       <h5>Enter your credentials to login or sign up</h5>
       <div class="form-floating mb-3">
@@ -8,6 +12,9 @@
           class="form-control"
           id="floatingInput"
           placeholder="name@example.com"
+          ngModel
+          required
+          name="username"
         />
         <label for="floatingInput">Email address</label>
       </div>
@@ -17,13 +24,28 @@
           class="form-control"
           id="floatingPassword"
           placeholder="Password"
+          ngModel
+          required
+          name="password"
         />
         <label for="floatingPassword">Password</label>
       </div>
-      <button type="button" class="btn btn-primary mt-3">Login</button>
-      <button type="button" class="btn btn-outline-primary mt-3 ms-2">
-        Sign Up
+      <button type="submit" class="btn btn-primary mt-3">
+        {{ isLogin ? "Login" : "Sign Up" }}
       </button>
+      <button
+        type="button"
+        class="btn btn-outline-primary mt-3 ms-2"
+        (click)="onSwitch()"
+      >
+        Switch
+      </button>
+      <div class="alert alert-danger mt-3" *ngIf="errorMsg">
+        <p>{{ this.errorMsg }}</p>
+      </div>
     </div>
   </form>
+  <div class="d-flex justify-content-center mt-3" *ngIf="isLoading">
+    <app-spinner> </app-spinner>
+  </div>
 </div>

@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   API_KEY: 'AIzaSyBEGkkKXEkZsWORJ77einlFDaIZ_2WpcDQ',
   G_API_URL: 'https://www.googleapis.com/books/v1/volumes',
+  AUTH_KEY: 'AIzaSyAVJHFpTebuyvgzIbVk5pDzxrgy1PtlVy4',
 };
 
 /*
